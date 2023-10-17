@@ -1,5 +1,7 @@
 # Test Task: Junior .Net Developer - REST API Development
 
+[![.NET](https://github.com/olehkavetskyi/Test-Task/actions/workflows/dotnet.yml/badge.svg)](https://github.com/olehkavetskyi/Test-Task/actions/workflows/dotnet.yml)
+
 ## Task Description
 
 This application is a sample REST API using C# that interacts with an MS SQL database containing a single table. 
