@@ -36,6 +36,6 @@ jobs:
       if: always()
       with:
         files: |
-          ./Application.Tests/TestResults/xapplication.trx
-          ./Web.Tests/TestResults/xweb.trx
-          ./Infrastructure.Tests/TestResults/xinfrastructure.trx
+          ./tests/Application.Tests/TestResults/xapplication.trx
+          ./tests/Web.Tests/TestResults/xweb.trx
+          ./tests/Infrastructure.Tests/TestResults/xinfrastructure.trx
