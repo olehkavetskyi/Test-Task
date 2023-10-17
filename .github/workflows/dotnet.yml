@@ -1,0 +1,41 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      run: dotnet restore "Test Task.sln"
+    - name: Build
+      run: dotnet build "Test Task.sln" --no-restore 
+
+    - name: Test Application.Tests
+      run: dotnet test ./tests/Application.Tests/Application.Tests.csproj --no-build --verbosity normal --logger "trx;LogFileName=xapplication.trx"
+    
+    - name: Test Web.Tests
+      run: dotnet test ./tests/Web.Tests/Web.Tests.csproj --no-build --verbosity normal --logger "trx;LogFileName=xweb.trx"
+
+    - name: Test Infrastructure.Tests
+      run: dotnet test ./tests/Infrastructure.Tests/Infrastructure.Tests.csproj --no-build --verbosity normal --logger "trx;LogFileName=xinfrastructure.trx"
+
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        files: |
+          ./Application.Tests/TestResults/xapplication.trx
+          ./Web.Tests/TestResults/xweb.trx
+          ./Infrastructure.Tests/TestResults/xinfrastructure.trx
