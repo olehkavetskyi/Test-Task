@@ -15,7 +15,7 @@ This application is designed as a test task to showcase my knowledge of various 
 To install this repository to your local machine using Git.
 
 ```bash
- git clone https://github.com/olehkavetskyi/
+ git clone https://github.com/olehkavetskyi/Test-Task
 ```
 
 1. Install the .NET 7 on your machine if it is not already installed.
