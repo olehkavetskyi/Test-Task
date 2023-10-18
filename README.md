@@ -33,7 +33,7 @@ To install this repository to your local machine using Git.
     "DefaultConnection": "your_connection_string"
   },
 ```
-Also you are free to change ``` IpRateLimiting ``` values that responds for 
+Also you are free to change ``` IpRateLimiting ``` values.
 
 ## Libraries and frameworks
 
